@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Iframe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="weatherContent"></div>
+
+    <script>
+        window.addEventListener('message', function(event) {
+            if (event.origin !== 'YOUR_WIX_SITE_ORIGIN') {
+                return; // Ignore messages from unknown origins
+            }
+            const weatherContent = document.getElementById('weatherContent');
+            weatherContent.innerHTML = event.data;
+        });
+    </script>
+</body>
+</html>
